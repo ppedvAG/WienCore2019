@@ -10,7 +10,10 @@ namespace WienCore2019
     public class calc3Model : PageModel
     {
         public int Ergebnis { get; set; }
+        [BindProperty]
         public int eins { get; set; }
+
+        [BindProperty]
         public int zwei { get; set; }
         public void OnGet()
         {
