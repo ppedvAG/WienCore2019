@@ -1,0 +1,14 @@
+﻿@page "/calc/{handler?}"
+@model WienCore2019.calc3Model
+@{
+    ViewData["Title"] = "calc3";
+}
+
+<h1>calc3</h1>
+<form method="post">
+    <input  value='@Model.eins' />
+    <input value='@Model.zwei' />
+    <button asp-page-handler="plus">+</button>
+    <button asp-page-handler="minus">-</button>
+</form>
+@Model.Ergebnis
