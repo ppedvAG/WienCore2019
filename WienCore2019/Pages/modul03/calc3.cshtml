@@ -6,8 +6,8 @@
 
 <h1>calc3</h1>
 <form method="post">
-    <input  value='@Model.eins' />
-    <input value='@Model.zwei' />
+    <input asp-for='eins' />
+    <input asp-for='zwei' />
     <button asp-page-handler="plus">+</button>
     <button asp-page-handler="minus">-</button>
 </form>
