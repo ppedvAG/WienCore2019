@@ -7,6 +7,10 @@ namespace WienCore2019.Modul02
 {
     public class DI
     {
+        public DI()
+        {
+            MyProperty = 10;
+        }
         public int MyProperty { get; set; }
     }
 }
