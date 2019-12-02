@@ -10,7 +10,7 @@ namespace WienCore2019
     public class calc1Model : PageModel
     {
         public int Ergebnis { get; set; }
-        public void OnGet
+        public void OnGet()
         {
             Ergebnis = 0;
         }
