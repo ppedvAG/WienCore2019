@@ -18,5 +18,9 @@ namespace WienCore2019
         {
 
         }
+        public void OnPost()
+        {
+
+        }
     }
 }
