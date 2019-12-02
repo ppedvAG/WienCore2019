@@ -13,5 +13,13 @@ namespace WienCore2019
         {
 
         }
+        public PartialViewResult OnPost()
+        { 
+            return Partial("_Zeit");
+        }
+        public PartialViewResult OnGetLade()
+        {
+            return Partial("_Zeit");
+        }
     }
 }

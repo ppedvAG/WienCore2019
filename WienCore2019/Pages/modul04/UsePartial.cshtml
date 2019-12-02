@@ -6,3 +6,18 @@
 
 <h1>UsePartial</h1>
 <partial name="_Zeit" />
+<form method="post">
+    <button>do</button>
+</form>
+<a href="#" onclick="lade()">lade Uhrzeit</a>
+<ul id="eins">
+
+</ul>
+<div id="zeit"></div>
+<script>
+    function lade() {
+  
+        $("#zeit").load("UsePartial?handler=lade");
+        $("#eins").append('<li>'+$("#zeit").text()+'</li>');
+    }
+</script>
