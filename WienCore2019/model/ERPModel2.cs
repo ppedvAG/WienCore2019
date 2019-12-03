@@ -25,6 +25,22 @@ namespace WienCore2019
             modelBuilder.Entity<Positionen>()
                 .Property(e => e.Text)
                 .IsUnicode(false);
+            base.OnModelCreating(modelBuilder);
+        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+
+        {
+
+
+
+            if (!optionsBuilder.IsConfigured)
+
+            {
+
+                optionsBuilder.UseSqlServer(Configuration.GetConnectionString("demo"));
+
+            }
+
         }
     }
 }
