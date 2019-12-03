@@ -13,6 +13,7 @@ namespace WienCore2019
         public List<Rechnung> Liste { get; set; }
         public void OnGet([FromServices]  ERPModel2 ef)
         {
+            
             Liste = ef.Rechnung.Include("Positionen").ToList();
         }
     }
