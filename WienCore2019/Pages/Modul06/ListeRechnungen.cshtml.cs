@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.EntityFrameworkCore;
 
 namespace WienCore2019
 {
@@ -12,7 +13,7 @@ namespace WienCore2019
         public List<Rechnung> Liste { get; set; }
         public void OnGet([FromServices]  ERPModel2 ef)
         {
-            Liste = ef.Rechnung.ToList();
+            Liste = ef.Rechnung.Include("Positionen").ToList();
         }
     }
 }
