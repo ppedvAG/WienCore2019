@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WienCore2019.Modul02;
 using WienCore2019.Pages.Modul05;
+using Microsoft.EntityFrameworkCore;
 
 namespace WienCore2019
 {
@@ -31,6 +32,8 @@ namespace WienCore2019
             services.AddSession(options=>options.IdleTimeout=new TimeSpan(0,30,0));
             services.AddResponseCaching();
             services.AddMemoryCache();
+            services.AddDbContext<ERPModel2>(options=>
+            options.UseSqlServer(Configuration.GetConnectionString("demo")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
