@@ -8,6 +8,10 @@ namespace WienCore2019
     [Table("Rechnung")]
     public partial class Rechnung
     {
+        public Rechnung()
+        {
+            Positionen = new List<Positionen>();
+        }
         public int Id { get; set; }
 
         public int? KundenID { get; set; }
