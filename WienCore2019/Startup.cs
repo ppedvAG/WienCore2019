@@ -60,6 +60,7 @@ namespace WienCore2019
             {
                 endpoints.MapRazorPages();
             });
+            //damit de middelware net immer aufgrufn wird sondern nur wenn es auf den thumbnail Pfad geht
             app.MapWhen(context => context.Request.Path.Value.Contains("thumbnail"), appBranch =>
               {
                   appBranch.UseMiddleware<Thumbnail>();
