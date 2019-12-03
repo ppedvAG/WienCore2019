@@ -1,0 +1,17 @@
+﻿@page "{handler?}"
+@model WienCore2019.TestCookieModel
+@{
+    ViewData["Title"] = "TestCookie";
+}
+
+<h1>TestCookie</h1>
+<form>
+    <button asp-page-handler="SetzKeks">Cookie</button>
+</form>
+<div id="test"></div>
+@section  Scripts
+{
+<script>
+    $('#test').text(document.cookie);
+</script>
+}
