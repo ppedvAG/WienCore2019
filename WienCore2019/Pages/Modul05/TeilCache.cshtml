@@ -1,0 +1,12 @@
+﻿@page
+@model WienCore2019.TeilCacheModel
+@{
+    ViewData["Title"] = "TeilCache";
+}
+
+<h1>TeilCache</h1>
+<cache vary-by-query="id" enabled="true" expires-after="@new TimeSpan(0,0,59)">
+    @DateTime.Now
+
+</cache>
+
