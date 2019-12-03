@@ -27,6 +27,7 @@ namespace WienCore2019
         {
             services.AddRazorPages();
             services.AddSingleton<DI>();
+            services.AddSession(options=>options.IdleTimeout=new TimeSpan(0,30,0));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -47,7 +48,7 @@ namespace WienCore2019
             app.UseStaticFiles();
             
             app.UseRouting();
-
+            app.UseSession();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
