@@ -1,0 +1,16 @@
+﻿@page
+@model WienCore2019.BilderModel
+@{
+    ViewData["Title"] = "Bilder";
+}
+
+<h1>Bilder</h1>
+<div class="row">
+    @foreach (var item in Model.Bilder)
+    {
+        <div class="col-4">
+            <img class="rounded img-fluid" src="~/upload/@item" />
+        </div>
+    }
+
+</div>
