@@ -8,9 +8,10 @@
 <div class="row">
     @foreach (var item in Model.Bilder)
     {
-        <div class="col-4">
-            <img class="rounded img-fluid" src="~/upload/@item" />
-        </div>
+    <div class="col-4">
+        @*<img class="rounded img-fluid" src="~/upload/@item" />*@
+        <img class="rounded img-fluid" src="~/thumbnail?img=@item" />
+    </div>
     }
 
 </div>

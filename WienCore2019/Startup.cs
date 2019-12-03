@@ -9,6 +9,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WienCore2019.Modul02;
+using WienCore2019.Pages.Modul05;
 
 namespace WienCore2019
 {
@@ -59,6 +60,10 @@ namespace WienCore2019
             {
                 endpoints.MapRazorPages();
             });
+            app.MapWhen(context => context.Request.Path.Value.Contains("thumbnail"), appBranch =>
+              {
+                  appBranch.UseMiddleware<Thumbnail>();
+              });
         }
     }
 }
