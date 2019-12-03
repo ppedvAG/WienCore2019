@@ -18,7 +18,8 @@ namespace WienCore2019
         public void OnPost(IFormFile datei)
         {
           string name=  Path.GetFileName(datei.FileName); //wegen Edge bzw Chrome unterschiede
-            var pfad = Path.Combine( AppDomain.CurrentDomain.GetData("pfad").ToString(), @"\upload\",name);
+            string[] str= { AppDomain.CurrentDomain.GetData("pfad").ToString(),"wwwroot", "upload", name };
+            var pfad = Path.Combine(str );
     
 
             using (var fs = new FileStream(pfad, FileMode.Create))
