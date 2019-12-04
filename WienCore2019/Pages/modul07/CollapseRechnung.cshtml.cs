@@ -17,12 +17,13 @@ namespace WienCore2019
         {
             if (SearchString != null)
             {
-                Liste = ef.Rechnung.Include("Positionen").Where(x=>x.KundenID.ToString().Contains(SearchString)).ToList();
+                Liste = ef.Rechnung.Include("Positionen").Where(x => x.KundenID.ToString().Contains(SearchString)).ToList();
             }
             else
             {
                 Liste = ef.Rechnung.Include("Positionen").ToList();
             }
         }
+       
     }
 }
