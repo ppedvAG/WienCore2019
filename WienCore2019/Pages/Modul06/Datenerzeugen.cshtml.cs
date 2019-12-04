@@ -12,8 +12,7 @@ namespace WienCore2019
 
         public void OnGet([FromServices]  ERPModel2 ef)
         {
-
-            var rand = new Random();
+                        var rand = new Random();
             for (int i = 0; i < 100; i++)
             {
                 var r = new Rechnung() { Datum = DateTime.Now.AddDays(rand.Next(300)), KundenID = rand.Next(100000) };
