@@ -20,7 +20,9 @@
 <script>
     var pagecounter = 0;
     function lade() {
-    $("#tabelle1 >tbody:last-child").load("RechnungenPartialPaging?handler=ladenext&SeiteCounter="+pagecounter);
+       // $("#tabelle1 >tbody:last-child").load("RechnungenPartialPaging?handler=ladenext&SeiteCounter=" + pagecounter);
+
+        $.get("RechnungenPartialPaging?handler=ladenext&SeiteCounter=" + pagecounter,function (result) { $("#tabelle1 >tbody:last-child").append(result);});
         pagecounter++;
     }
 </script>
