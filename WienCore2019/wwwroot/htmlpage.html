@@ -5,7 +5,19 @@
     <title></title>
 </head>
 <body>
-    <h1>Hannes Seite</h1>
-
+    <script src="/lib/jquery/dist/jquery.js"></script>
+    <ul id="ul1"></ul>
+    <a href="#" onclick="lade()">lade....</a>
+    <script>
+        function lade() {
+           
+            $.getJSON("/api/rechnungs")
+                .done(function (daten) {
+                    $.each(daten, function (key, item) {
+                        $('<li>').text(item.datum).appendTo('#ul1');
+                    })
+                });
+        }
+    </script>
 </body>
 </html>
