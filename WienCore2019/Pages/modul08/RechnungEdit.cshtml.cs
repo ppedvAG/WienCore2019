@@ -34,6 +34,7 @@ namespace WienCore2019
                 return Page();
             }
             Rechnung.Id = int.Parse(RouteData.Values["id"].ToString());
+         //   Rechnung.Summe = _ef.Positionen.Where(x => x.RechnungID == Rechnung.Id).ToList().Sum(y => y.Preis * y.Anzahl).Value;
             _ef.Rechnung.Attach(Rechnung).State = EntityState.Modified;
             _ef.SaveChanges();
             ModelState.AddModelError("hannes", "super erfolgreich gespeichert");
