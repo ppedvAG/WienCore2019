@@ -36,6 +36,7 @@ namespace WienCore2019
             services.AddMemoryCache();
             services.AddDbContext<ERPModel2>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("demo")));
+            services.AddSignalR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -65,6 +66,7 @@ namespace WienCore2019
             {
                 endpoints.MapRazorPages();
                 endpoints.MapControllers(); //web Api
+                endpoints.MapHub<HannesHub>("hanneshub");
             });
             //damit de middelware net immer aufgrufn wird sondern nur wenn es auf den thumbnail Pfad geht
             app.MapWhen(context => context.Request.Path.Value.Contains("thumbnail"), appBranch =>

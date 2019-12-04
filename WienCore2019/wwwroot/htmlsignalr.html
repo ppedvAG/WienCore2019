@@ -1,0 +1,29 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <input id="eingabe" />
+    <input type="button" onclick="callhub()" />
+    <div id="ausgabe"></div>
+    <script src="@microsoft/signalr/dist/browser/signalr.min.js"></script>
+    <script>
+
+        var connection = new signalR.HubConnectionBuilder().withUrl("/hanneshub").build();
+
+        connection.start();
+
+        connection.on("hannesruftan", function (message) {
+
+            document.getElementById("ausgabe").innerHTML=message;
+        });
+
+        function callhub() {
+            var txt = document.getElementById("eingabe").value;
+             connection.invoke("HannesHallo", txt);
+        }
+    </script>
+</body>
+</html>

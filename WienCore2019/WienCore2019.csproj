@@ -5,6 +5,24 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="wwwroot\%40microsoft\signalr\dist\cjs\**" />
+    <Compile Remove="wwwroot\%40microsoft\signalr\dist\esm\**" />
+    <Compile Remove="wwwroot\%40microsoft\signalr\src\**" />
+    <Content Remove="wwwroot\%40microsoft\signalr\dist\cjs\**" />
+    <Content Remove="wwwroot\%40microsoft\signalr\dist\esm\**" />
+    <Content Remove="wwwroot\%40microsoft\signalr\src\**" />
+    <EmbeddedResource Remove="wwwroot\%40microsoft\signalr\dist\cjs\**" />
+    <EmbeddedResource Remove="wwwroot\%40microsoft\signalr\dist\esm\**" />
+    <EmbeddedResource Remove="wwwroot\%40microsoft\signalr\src\**" />
+    <None Remove="wwwroot\%40microsoft\signalr\dist\cjs\**" />
+    <None Remove="wwwroot\%40microsoft\signalr\dist\esm\**" />
+    <None Remove="wwwroot\%40microsoft\signalr\src\**" />
+    <TypeScriptCompile Remove="wwwroot\%40microsoft\signalr\dist\cjs\**" />
+    <TypeScriptCompile Remove="wwwroot\%40microsoft\signalr\dist\esm\**" />
+    <TypeScriptCompile Remove="wwwroot\%40microsoft\signalr\src\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Remove="wwwroot\htmlpage.html" />
   </ItemGroup>
 
@@ -18,6 +36,10 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="3.1.0" />
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="3.7.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.0" />
     <PackageReference Include="System.Drawing.Common" Version="4.7.0" />
   </ItemGroup>
