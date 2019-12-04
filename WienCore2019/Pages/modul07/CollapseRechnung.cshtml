@@ -3,41 +3,38 @@
 @{
     ViewData["Title"] = "CollapseRechnung";
 }
+
 <div class="row">
     <div class="col-md-8">
-        <ul class="list-group">
+        <ul class="list-group list-group-flush">
             <li class="list-group-item active">Collapse Rechnung</li>
             @foreach (var item in Model.Liste)
             {
-                <li class="list-group-item d-flex accordion card" id="accordionExample">
-                   
-                        <div class="card-header" id="headingOne">
-                            <h2 class="mb-0">
-                                <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse@(item.Id)" aria-expanded="true" aria-controls="collapseOne">
-                                    Datum  @item.Datum Kundennummer @item.KundenID @item.Summe
-                                    <span class="badge badge-primary badge-pill">@item.Positionen.Count</span>
-                                </button>
-                            </h2>
-                        </div>
+                <li class="list-group-item  d-flex  card " id="accordionExample">
+                        <h2 class="mb-0 ">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapse@(item.Id)" aria-expanded="true" aria-controls="collapseOne">
+                                Datum  @item.Datum Kundennummer @item.KundenID @item.Summe
+                                <span class="badge badge-primary float-right">@item.Positionen.Count</span>
+                            </button>
+                        </h2>
+                    <div id="collapse@(item.Id)" class="collapse " >
+                        <div class="card-body">
+                            <ul>
+                                @foreach (var item2 in item.Positionen)
+                                {
+                                    <li>@item2.Anzahl @item2.Text @item2.Preis</li>
 
-                        <div id="collapse@(item.Id)" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
-                            <div class="card-body">
-                                <ul>
-                                    @foreach (var item2 in item.Positionen)
-                                    {
-                                        <li>@item2.Anzahl @item2.Text @item2.Preis</li>
-
-                                    }
-                                </ul>
+                                }
+                            </ul>
                         </div>
                     </div>
-                     
-                    </li>
 
-                }
+                </li>
 
-            </ul>
-            </div>
-            </div>
+            }
+
+        </ul>
+    </div>
+</div>
 
 

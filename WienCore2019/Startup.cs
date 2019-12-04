@@ -11,7 +11,7 @@ using Microsoft.Extensions.Hosting;
 using WienCore2019.Modul02;
 using WienCore2019.Pages.Modul05;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.AspNetCore.Mvc.Razor;
 namespace WienCore2019
 {
     public class Startup
@@ -20,7 +20,7 @@ namespace WienCore2019
         {
             Configuration = configuration;
         }
-     
+
 
         public IConfiguration Configuration { get; }
 
@@ -28,11 +28,12 @@ namespace WienCore2019
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+           services.AddControllersWithViews().AddRazorRuntimeCompilation();            //Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
             services.AddSingleton<DI>();
-            services.AddSession(options=>options.IdleTimeout=new TimeSpan(0,30,0));
+            services.AddSession(options => options.IdleTimeout = new TimeSpan(0, 30, 0));
             services.AddResponseCaching();
             services.AddMemoryCache();
-            services.AddDbContext<ERPModel2>(options=>
+            services.AddDbContext<ERPModel2>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("demo")));
         }
 
@@ -49,16 +50,16 @@ namespace WienCore2019
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
-            AppDomain.CurrentDomain.SetData("pfad", env.ContentRootPath); 
+            AppDomain.CurrentDomain.SetData("pfad", env.ContentRootPath);
             var con = Configuration.GetConnectionString("demo");
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            
+
             app.UseRouting();
             app.UseSession();
             app.UseAuthorization();
             app.UseResponseCaching();
-            
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
