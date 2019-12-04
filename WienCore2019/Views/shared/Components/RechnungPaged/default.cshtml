@@ -1,0 +1,10 @@
+﻿@using WienCore2019
+@model List<Rechnung>
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@item.Id</td>
+        <td>@item.Datum</td>
+        <td>@item.Summe</td>
+    </tr>
+}

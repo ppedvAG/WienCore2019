@@ -1,0 +1,45 @@
+﻿@page
+@model WienCore2019.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Rechnung</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Rechnung.Id" />
+            <div class="form-group">
+                <label asp-for="Rechnung.KundenID" class="control-label"></label>
+                <input asp-for="Rechnung.KundenID" class="form-control" />
+                <span asp-validation-for="Rechnung.KundenID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rechnung.Datum" class="control-label"></label>
+                <input asp-for="Rechnung.Datum" class="form-control" />
+                <span asp-validation-for="Rechnung.Datum" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rechnung.Summe" class="control-label"></label>
+                <input asp-for="Rechnung.Summe" class="form-control" />
+                <span asp-validation-for="Rechnung.Summe" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

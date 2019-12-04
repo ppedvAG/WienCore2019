@@ -12,7 +12,9 @@ namespace WienCore2019
         {
             Positionen = new List<Positionen>();
         }
+     
         public int Id { get; set; }
+        [Display(Name = "Kunden ID")]
 
         public int? KundenID { get; set; }
 
