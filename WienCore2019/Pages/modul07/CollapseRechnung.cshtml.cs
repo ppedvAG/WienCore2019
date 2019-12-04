@@ -10,11 +10,19 @@ namespace WienCore2019
 {
     public class CollapseRechnungModel : PageModel
     {
+        [BindProperty(SupportsGet = true)]
+        public string SearchString { get; set; }
         public List<Rechnung> Liste { get; set; }
         public void OnGet([FromServices]  ERPModel2 ef)
         {
-
-            Liste = ef.Rechnung.Include("Positionen").ToList();
+            if (SearchString != null)
+            {
+                Liste = ef.Rechnung.Include("Positionen").Where(x=>x.KundenID.ToString().Contains(SearchString)).ToList();
+            }
+            else
+            {
+                Liste = ef.Rechnung.Include("Positionen").ToList();
+            }
         }
     }
 }
