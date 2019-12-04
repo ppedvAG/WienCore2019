@@ -6,9 +6,10 @@
 
 <h1>RechnungEdit</h1>
 <form method="post">
+
     @*<input type="hidden" asp-for="Rechnung.Id"/>*@
     <input asp-for="Rechnung.KundenID"/><br />
     <input asp-for="Rechnung.Datum" />
     <input type="submit" value="save"/>
-
+    <div asp-validation-summary="All"></div>
 </form>

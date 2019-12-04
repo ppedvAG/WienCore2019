@@ -36,6 +36,7 @@ namespace WienCore2019
             Rechnung.Id = int.Parse(RouteData.Values["id"].ToString());
             _ef.Rechnung.Attach(Rechnung).State = EntityState.Modified;
             _ef.SaveChanges();
+            ModelState.AddModelError("hannes", "super erfolgreich gespeichert");
             return Page();
         }
     }
