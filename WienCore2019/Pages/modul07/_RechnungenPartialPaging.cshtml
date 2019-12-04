@@ -1,0 +1,9 @@
+﻿@model WienCore2019.RechnungenPartialPagingModel
+@foreach (var item in Model.Liste)
+{
+    <tr>
+        <td>@item.Id</td>
+        <td>@item.Datum.Value.ToShortDateString()</td>
+        <td>@item.Summe</td>
+    </tr>
+}

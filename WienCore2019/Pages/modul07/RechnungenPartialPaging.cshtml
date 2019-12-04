@@ -1,0 +1,27 @@
+﻿@page
+@model WienCore2019.RechnungenPartialPagingModel
+@{
+    ViewData["Title"] = "RechnungenPartialPaging";
+}
+
+<h1>RechnungenPartialPaging</h1>
+<p>immer 10 Rechnungen laden</p>
+<a class="btn btn-outline-primary" href="#" 
+   onclick='lade()'
+   >load...</a>
+<table id="tabelle1">
+    <tr>
+        <th>ID</th>
+        <th>Datum </th>
+        <th>Summe</th>
+    </tr>
+</table>
+@section scripts{ 
+<script>
+    var pagecounter = 0;
+    function lade() {
+    $("#tabelle1 >tbody:last-child").load("RechnungenPartialPaging?handler=ladenext&SeiteCounter="+pagecounter);
+        pagecounter++;
+    }
+</script>
+}
