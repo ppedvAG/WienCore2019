@@ -11,11 +11,7 @@ namespace StuttgartCore.Pages.modul07
     public class RechnungenPagingModel : PageModel
     {
      
-        public void OnGet()
-        {
-
-        }
-        public ViewComponentResult OnPost(int? seite)
+         public ViewComponentResult OnPost(int? seite)
         {
          
             return ViewComponent("RechnungPaged", new { page = seite });

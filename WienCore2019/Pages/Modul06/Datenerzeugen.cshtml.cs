@@ -9,14 +9,24 @@ namespace WienCore2019
 {
     public class DatenerzeugenModel : PageModel
     {
-       
+
         public void OnGet([FromServices]  ERPModel2 ef)
         {
-            var r = new Rechnung() { Datum = DateTime.Now, KundenID = 1, Summe = 50 };
-            r.Positionen.Add(new Positionen() { Anzahl = 1, Preis = 20, Text = "demo1" });
-            r.Positionen.Add(new Positionen() { Anzahl = 1, Preis = 30, Text = "demo2" });
-            ef.Rechnung.Add(r);
-            ef.SaveChanges();
+
+            var rand = new Random();
+            for (int i = 0; i < 100; i++)
+            {
+                var r = new Rechnung() { Datum = DateTime.Now.AddDays(rand.Next(300)), KundenID = rand.Next(100000) };
+                for (int ii = 0; ii < rand.Next(5); ii++)
+                {
+                    r.Positionen.Add(new Positionen() { Anzahl = rand.Next(3), Preis = rand.Next(99), Text = "demo"+rand.Next(10000).ToString() });
+                }
+
+                r.Summe = r.Positionen.Sum(x => x.Anzahl * x.Preis);
+                ef.Rechnung.Add(r);
+                ef.SaveChanges();
+            }
+
 
         }
     }
