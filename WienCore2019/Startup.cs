@@ -28,7 +28,8 @@ namespace WienCore2019
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
-           services.AddControllersWithViews().AddRazorRuntimeCompilation();            //Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
+         
+            services.AddControllersWithViews().AddRazorRuntimeCompilation();            //Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation
             services.AddSingleton<DI>();
             services.AddSession(options => options.IdleTimeout = new TimeSpan(0, 30, 0));
             services.AddResponseCaching();
@@ -63,6 +64,7 @@ namespace WienCore2019
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapRazorPages();
+                endpoints.MapControllers(); //web Api
             });
             //damit de middelware net immer aufgrufn wird sondern nur wenn es auf den thumbnail Pfad geht
             app.MapWhen(context => context.Request.Path.Value.Contains("thumbnail"), appBranch =>
