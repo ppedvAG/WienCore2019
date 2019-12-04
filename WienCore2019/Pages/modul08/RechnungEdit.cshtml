@@ -1,0 +1,14 @@
+﻿@page "{id:int}"
+@model WienCore2019.RechnungEditModel
+@{
+    ViewData["Title"] = "RechnungEdit";
+}
+
+<h1>RechnungEdit</h1>
+<form method="post">
+    @*<input type="hidden" asp-for="Rechnung.Id"/>*@
+    <input asp-for="Rechnung.KundenID"/><br />
+    <input asp-for="Rechnung.Datum" />
+    <input type="submit" value="save"/>
+
+</form>
