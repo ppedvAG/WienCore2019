@@ -16,7 +16,7 @@ namespace WienCore2019
             for (int i = 0; i < 100; i++)
             {
                 var r = new Rechnung() { Datum = DateTime.Now.AddDays(rand.Next(300)), KundenID = rand.Next(100000) };
-                for (int ii = 0; ii < rand.Next(5); ii++)
+                for (int ii = 1; ii < rand.Next(5); ii++)
                 {
                     r.Positionen.Add(new Positionen() { Anzahl = rand.Next(3), Preis = rand.Next(99), Text = "demo"+rand.Next(10000).ToString() });
                 }
